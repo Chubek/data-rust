@@ -41,6 +41,17 @@ fn match_value(val: &str) -> &str {
     x
 }
 
+fn match_same(val_one: &str, val_two: &str) -> &str {
+
+    let x = match val_one == val_two {
+        true => "",
+        false => val_two
+    };
+
+    x
+
+}
+
 impl Stuff {
     fn construct_insert_statement(&mut self) -> Result<String, Box<dyn Error>> {
         let mut ret = String::from("INSERT INTO ApmaPodScrape VALUES \n");
@@ -57,7 +68,8 @@ impl Stuff {
                                    match_value(&*self.addr_country[i]),
                                    match_value(&*self.site[i]),
                                    match_value(&*self.year[i]),
-                                   match_value(&*self.biz_name[i])))
+                                   match_value(match_same(&*self.addr_city[i],
+                                                          &*self.biz_name[i]))))
         }
 
         Ok(ret.trim_end_matches(", \n").to_string())

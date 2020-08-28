@@ -22,13 +22,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b42f02ef-1f64-4cbc-a4d2-11ea062fe1b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/mike_rust.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_secret.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/geckodriver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +103,7 @@
       <workItem from="1598414866816" duration="3744000" />
       <workItem from="1598436603208" duration="54878000" />
       <workItem from="1598569568665" duration="14018000" />
-      <workItem from="1598619026001" duration="23802000" />
+      <workItem from="1598619026001" duration="24606000" />
     </task>
     <servers />
   </component>
