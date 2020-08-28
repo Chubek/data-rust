@@ -33,6 +33,6 @@ ADD . /
 
 RUN sudo chmod +x geckodriver
 
-RUN ./geckodriver --port 4444
+CMD ["./geckodriver", "--port", "4444"]
 
 CMD [ "cargo", "run" ]
