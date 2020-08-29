@@ -1,12 +1,10 @@
 FROM ubuntu:latest
 
 
-ARG USER_ID
-ARG GROUP_ID
+RUN sudo addgroup dagroup
 
-RUN addgroup --gid $GROUP_ID user
-RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
-USER user
+RUN adduser --disabled-password --gecos '' dauser dagroup
+USER dauser
 
 ENV TZ=America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -31,7 +29,7 @@ RUN sudo apt-get install apt-transport-https -y \
 && sudo apt-get install libssl-dev -y \
 && sudo apt-get install zlib1g-dev -y
 
-RUN sudo su
+RUN sudo -i
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 RUN curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
 RUN apt-get update
