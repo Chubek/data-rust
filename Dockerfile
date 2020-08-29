@@ -1,5 +1,13 @@
 FROM ubuntu:latest
 
+
+ARG USER_ID
+ARG GROUP_ID
+
+RUN addgroup --gid $GROUP_ID user
+RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
+USER user
+
 ENV TZ=America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ENV DEBIAN_FRONTEND=noninteractive
@@ -7,13 +15,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get clean \
 && apt-get update \
 && apt-get install sudo -y
-
-
-RUN adduser --disabled-password --gecos '' docker
-RUN adduser docker sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
-USER docker
 
 RUN sudo apt-get install apt-transport-https -y \
 && sudo apt-get install unixodbc -y \
@@ -31,13 +32,13 @@ RUN sudo apt-get install apt-transport-https -y \
 && sudo apt-get install zlib1g-dev -y
 
 RUN sudo su
-RUN sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-RUN sudo curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
-RUN sudo apt-get update
-RUN sudo ACCEPT_EULA=Y apt-get install -y --allow-unauthenticated msodbcsql17
-RUN sudo ACCEPT_EULA=Y apt-get install -y --allow-unauthenticated mssql-tools
-RUN sudo echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
-RUN sudo echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+RUN curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
+RUN apt-get update
+RUN ACCEPT_EULA=Y apt-get install -y --allow-unauthenticated msodbcsql17
+RUN ACCEPT_EULA=Y apt-get install -y --allow-unauthenticated mssql-tools
+RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
+RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 RUN exit
 
 ENV HOME /home/rust
