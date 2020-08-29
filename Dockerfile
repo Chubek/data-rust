@@ -33,15 +33,15 @@ RUN sudo apt-get install apt-transport-https -y \
 && sudo apt-get install libssl-dev -y \
 && sudo apt-get install zlib1g-dev -y
 
-RUN echo "Set disable_coredump false" >> /etc/sudo.conf
+RUN sudo echo "Set disable_coredump false" >> /etc/sudo.conf
 
 RUN sudo curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 RUN sudo curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list
 RUN sudo apt-get update
 RUN sudo ACCEPT_EULA=Y apt-get install msodbcsql17
 RUN sudo ACCEPT_EULA=Y apt-get install mssql-tools
-RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
-RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+RUN sudo echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
+RUN sudo echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 
 
 ENV HOME /home/rust
@@ -49,9 +49,9 @@ ENV USER rust
 ENV SHELL /bin/bash
 WORKDIR /home/rust
 
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-RUN echo "export PATH=~/.cargo/bin:$PATH" >> ~/.bashrc
-RUN echo "export PS1='\u:\w$ '" >> ~/.bashrc
+RUN sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+RUN sudo echo "export PATH=~/.cargo/bin:$PATH" >> ~/.bashrc
+RUN sudo echo "export PS1='\u:\w$ '" >> ~/.bashrc
 
 COPY . /
 ADD . /
