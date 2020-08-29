@@ -26,9 +26,6 @@ RUN sudo apt-get install apt-transport-https -y \
 && sudo apt-get install net-tools -y \
 && sudo apt-get -y install openssl
 
-ADD bash_history /root/.bash_history
-ADD dades /tmp/dades
-
 RUN echo "alias ll='ls -l'" >> ~/.bashrc
 RUN /bin/bash -c "history -a"
 RUN /bin/bash -c "source ~/.bashrc"
