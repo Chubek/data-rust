@@ -30,6 +30,7 @@ RUN sudo apt-get install apt-transport-https -y \
 && sudo apt-get install libssl-dev -y \
 && sudo apt-get install zlib1g-dev -y
 
+RUN sudo su
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 RUN curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list
 RUN sudo apt-get update
@@ -37,7 +38,7 @@ RUN sudo ACCEPT_EULA=Y apt-get install msodbcsql17
 RUN sudo ACCEPT_EULA=Y apt-get install mssql-tools
 RUN sudo echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 RUN sudo echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
-
+RUN exit
 
 ENV HOME /home/rust
 ENV USER rust
