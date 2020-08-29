@@ -22,7 +22,17 @@ RUN sudo apt-get install apt-transport-https -y \
 && sudo apt-get install nano -y \
 && sudo apt-get install git -y \
 && sudo apt-get install libssl-dev -y \
-&& sudo apt-get install zlib1g-dev -y
+&& sudo apt-get install zlib1g-dev -y \
+&& sudo apt-get -y install emacs25-nox \
+&& sudo apt-get install net-tools \
+&& sudo apt-get -y install openssl
+
+ADD bash_history /root/.bash_history
+ADD dades /tmp/dades
+
+RUN echo "alias ll='ls -l'" >> ~/.bashrc
+RUN /bin/bash -c "history -a"
+RUN /bin/bash -c "source ~/.bashrc"
 
 RUN sudo -i
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
