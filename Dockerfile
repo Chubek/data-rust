@@ -33,8 +33,6 @@ RUN sudo apt-get install apt-transport-https -y \
 && sudo apt-get install libssl-dev -y \
 && sudo apt-get install zlib1g-dev -y
 
-RUN sudo echo "Set disable_coredump false" >> /etc/sudo.conf
-
 RUN sudo curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 RUN sudo curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list
 RUN sudo apt-get update
