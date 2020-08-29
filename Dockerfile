@@ -35,7 +35,7 @@ ENV USER rust
 ENV SHELL /bin/bash
 WORKDIR /home/rust
 
-RUN curl -sSf sh.rustup.rs | sh -s -- -y
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN echo "export PATH=~/.cargo/bin:$PATH" >> ~/.bashrc
 RUN echo "export PS1='\u:\w$ '" >> ~/.bashrc
 
