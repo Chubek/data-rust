@@ -11,7 +11,7 @@ RUN apt-get clean \
 && apt-get update \
 && apt-get install sudo -y
 
-RUN useradd -ms /bin/bash && echo "docker:docker" | chpasswd && adduser docker sudo
+RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
 USER docker
 
@@ -39,6 +39,7 @@ RUN sudo ACCEPT_EULA=Y apt-get install msodbcsql17
 RUN sudo ACCEPT_EULA=Y apt-get install mssql-tools
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+
 
 ENV HOME /home/rust
 ENV USER rust
