@@ -1,8 +1,6 @@
 FROM rust:1.31
 FROM alpine:3.7
 
-RUN root:x:0:0:root:/root:/bin/bash => root:x:0:0:root:/root:/sbin/nologin
-
 #Download the desired package(s)
 RUN curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/msodbcsql17_17.6.1.1-1_amd64.apk
 RUN curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/mssql-tools_17.6.1.1-1_amd64.apk
