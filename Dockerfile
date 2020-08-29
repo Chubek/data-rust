@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 
-RUN sudo addgroup dagroup
+RUN addgroup dagroup
 
 RUN adduser --disabled-password --gecos '' dauser dagroup
 USER dauser
