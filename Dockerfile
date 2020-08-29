@@ -1,11 +1,6 @@
 FROM ubuntu:latest
 
 
-RUN addgroup dagroup
-
-RUN adduser --disabled-password --gecos '' dauser dagroup
-USER dauser
-
 ENV TZ=America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ENV DEBIAN_FRONTEND=noninteractive
