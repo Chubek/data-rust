@@ -24,7 +24,9 @@ RUN sudo apt-get install apt-transport-https -y \
 && sudo apt-get install libssl-dev -y \
 && sudo apt-get install zlib1g-dev -y \
 && sudo apt-get install net-tools -y \
-&& sudo apt-get -y install openssl
+&& sudo apt-get -y install openssl -y \
+&& sudo apt-get install libssl-dev -y \
+&& sudo apt-get install libssl -y
 
 RUN echo "alias ll='ls -l'" >> ~/.bashrc
 RUN /bin/bash -c "history -a"
