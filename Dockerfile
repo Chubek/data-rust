@@ -31,8 +31,11 @@ RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 COPY . /
 ADD . /
 
+RUN cargo install --path .
+
+
 RUN sudo chmod +x geckodriver
 
 CMD ["./geckodriver", "--port", "4444"]
 
-CMD [ "cargo", "run" ]
+CMD ["mike_rust"]
