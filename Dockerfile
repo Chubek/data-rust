@@ -44,8 +44,10 @@ RUN echo "export PATH=~/.cargo/bin:$PATH" >> ~/.bashrc
 RUN echo "export PS1='\u:\w$ '" >> ~/.bashrc
 RUN /bin/bash -c "source ~/.bashrc"
 
-COPY . /
-ADD . /
+WORKDIR /app
+
+COPY . /app
+ADD . /app
 
 RUN ~/.cargo/bin/cargo install --path .
 
