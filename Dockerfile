@@ -2,6 +2,8 @@ FROM rust:1.31
 FROM alpine:3.7
 
 RUN apk add --no-cache curl
+RUN apk add --no-cache sudo
+RUN apk add --no-cache gpg
 
 
 #Download the desired package(s)
