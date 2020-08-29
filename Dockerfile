@@ -65,4 +65,4 @@ RUN sudo chmod +x geckodriver
 
 CMD ["./geckodriver", "--port", "4444"]
 
-CMD ["mike_rust"]
+CMD["./target/release/mike_rust"]
