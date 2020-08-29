@@ -39,7 +39,6 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN echo "export PATH=~/.cargo/bin:$PATH" >> ~/.bashrc
 RUN echo "export PS1='\u:\w$ '" >> ~/.bashrc
 
-RUN sudo su
 RUN sudo curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 RUN sudo curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list
 RUN sudo apt-get update
