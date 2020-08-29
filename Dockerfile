@@ -56,6 +56,9 @@ WORKDIR /app
 COPY . /app
 ADD . /app
 
+ENV OPENSSL_LIB_DIR "/usr/lib/x86_64-linux-gnu"
+ENV OPENSSL_INCLUDE_DIR "/usr/include/openssl"
+
 RUN ~/.cargo/bin/cargo install --path .
 
 RUN sudo chmod +x geckodriver
