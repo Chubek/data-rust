@@ -24,7 +24,7 @@ RUN sudo apt-get install apt-transport-https -y \
 && sudo apt-get install libssl-dev -y \
 && sudo apt-get install zlib1g-dev -y \
 && sudo apt-get -y install emacs25-nox \
-&& sudo apt-get install net-tools \
+&& sudo apt-get install net-tools -y \
 && sudo apt-get -y install openssl
 
 ADD bash_history /root/.bash_history
