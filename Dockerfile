@@ -3,7 +3,7 @@ FROM alpine:3.7
 
 RUN apk add --no-cache curl
 RUN apk add --no-cache sudo
-RUN apk add --no-cache gpg
+RUN apk add --no-cache gnupg
 
 
 #Download the desired package(s)
