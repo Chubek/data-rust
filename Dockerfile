@@ -19,7 +19,6 @@ RUN apt-get clean \
 && sudo apt-get install file -y \
 && sudo apt-get install asciinema -y \
 && sudo apt-get install unzip -y \
-&& sudo apt-get install emacs24-nox -y \
 && sudo apt-get install vim -y \
 && sudo apt-get install nano -y \
 && sudo apt-get install git -y \
