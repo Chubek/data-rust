@@ -4,7 +4,7 @@ FROM alpine:3.7
 RUN apk add --no-cache curl
 RUN apk add --no-cache sudo
 RUN apk add --no-cache gnupg
-
+RUN apk add --no-cache unixodbc
 
 #Download the desired package(s)
 RUN curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/msodbcsql17_17.6.1.1-1_amd64.apk
