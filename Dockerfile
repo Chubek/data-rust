@@ -21,8 +21,8 @@ RUN gpg --verify mssql-tools_17.6.1.1-1_amd64.sig mssql-tools_17.6.1.1-1_amd64.a
 
 
 #Install the package(s)
-RUN sudo apk add --no-cache --allow-untrusted msodbcsql17_17.6.1.1-1_amd64.apk
-RUN sudo apk add --no-cache --allow-untrusted mssql-tools_17.6.1.1-1_amd64.apk
+RUN sudo apk add --allow-untrusted msodbcsql17_17.6.1.1-1_amd64.apk
+RUN sudo apk add --allow-untrusted mssql-tools_17.6.1.1-1_amd64.apk
 
 
 COPY . /
