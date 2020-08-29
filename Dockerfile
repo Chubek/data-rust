@@ -9,8 +9,13 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get clean \
 && apt-get update \
-&& apt-get install sudo -y \
-&& apt-get install apt-transport-https -y \
+&& apt-get install sudo -y
+
+RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+
+USER docker
+
+RUN apt-get install apt-transport-https -y \
 && sudo apt-get install unixodbc -y \
 && sudo apt-get install unixodbc-dev -y \
 && sudo apt-get install curl -y \
