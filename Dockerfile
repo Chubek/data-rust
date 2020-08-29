@@ -30,13 +30,14 @@ RUN sudo apt-get install apt-transport-https -y \
 && sudo apt-get install libssl-dev -y \
 && sudo apt-get install zlib1g-dev -y
 
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-RUN curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
+RUN sudo su
+RUN sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+RUN sudo curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
 RUN sudo apt-get update
 RUN sudo ACCEPT_EULA=Y apt-get install -y --allow-unauthenticated msodbcsql17
 RUN sudo ACCEPT_EULA=Y apt-get install -y --allow-unauthenticated mssql-tools
-RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
-RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+RUN sudo echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
+RUN sudo echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 RUN exit
 
 ENV HOME /home/rust
