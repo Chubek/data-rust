@@ -1,6 +1,5 @@
 FROM rust:1.31
-FROM apline:latest
-
+FROM alpine:3.7
 
 RUN root:x:0:0:root:/root:/bin/bash => root:x:0:0:root:/root:/sbin/nologin
 
